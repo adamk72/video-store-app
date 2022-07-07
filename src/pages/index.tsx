@@ -8,7 +8,11 @@ const Home: NextPage = () => {
   //     body: "foobar",
   //   })
   //   .then((res) => console.log(res));
-  return null;
+  return (
+    <h1 className="text-3xl font-bold underline bg-black text-emerald-600">
+      Hello world!
+    </h1>
+  );
 };
 
 export default Home;
