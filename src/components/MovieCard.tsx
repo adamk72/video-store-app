@@ -1,7 +1,4 @@
-export type Movie = {
-  title: string;
-  id: string;
-};
+import { Movie } from "@utils/types";
 
 export const MovieCard = ({ movie }: { movie: Movie }) => {
   return (

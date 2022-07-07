@@ -1,10 +1,6 @@
 import db from "@utils/db";
+import { Movie } from "@utils/types";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-type Movie = {
-  slug: string;
-  id: string;
-};
 
 export default async function handler(
   req: NextApiRequest,
