@@ -1,3 +1,4 @@
+import { MovieCardList } from "@components/MovieCardList";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
@@ -9,9 +10,12 @@ const Home: NextPage = () => {
   //   })
   //   .then((res) => console.log(res));
   return (
-    <h1 className="text-3xl font-bold underline bg-black text-emerald-600">
-      Hello world!
-    </h1>
+    <MovieCardList
+      movies={[
+        { title: "foo", id: "1234" },
+        { title: "bar", id: "4321" },
+      ]}
+    />
   );
 };
 
