@@ -1,12 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-type Data = {
-  name: string;
-};
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
+export default async function handler(
+  _req: NextApiRequest,
+  res: NextApiResponse<FirebaseFirestore.DocumentData>
 ) {
-  res.status(200).json({ name: "John Doe" });
+  res.status(400).end();
 }
