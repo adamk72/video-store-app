@@ -9,5 +9,3 @@ A single page application which displays a list of movie titles.
 - An "Add Movie" button displays a form that the visitor can add the movie title, saving the new item to persistent storage.
 
 ## Backend
-
-

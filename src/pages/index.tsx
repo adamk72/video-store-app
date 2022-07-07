@@ -11,7 +11,7 @@ const Home: NextPage<HomePageProps> = ({ movies }) => {
   return (
     <div>
       <ScrollContainer
-        className="h-[50vh] scrollbar-width-override cursor-ns-resize"
+        className="scrollbar-width-override h-[50vh] cursor-ns-resize"
         hideScrollbars={false}
       >
         <MovieCardList movies={movies} />
