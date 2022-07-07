@@ -1,0 +1,65 @@
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "entity.name.type",
+          "meta.object-literal.key"
+        ],
+        "settings": {
+          "foreground": "#79c0ff"
+        }
+      },
+      {
+        "scope": [
+          "entity.name.tag",
+          "support.class.component"
+        ],
+        "settings": {
+          "foreground": "#6495ed",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "keyword.control.export.tsx",
+          "keyword.control.import.tsx"
+        ],
+        "settings": {
+          "foreground": "#6495ed"
+        }
+      },
+      {
+        "scope": [
+          "string",
+          "punctuation.definition.string"
+        ],
+        "settings": {
+          "foreground": "#9375b2"
+        }
+      }
+    ]
+  },
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      "foreground": {
+        "foreground": "#ff0000"
+      },
+      "parameter": {
+        "foreground": "#c6ff00"
+      },
+      "*.declaration": {
+        "fontStyle": "bold",
+        "foreground": "#ff9800"
+      },
+      "function": {
+        "foreground": "#8bc34a"
+      },
+      "method": {
+        "fontStyle": "italic"
+      },
+      "interface": "#ff0000"
+    }
+  }
+}
