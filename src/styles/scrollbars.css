@@ -1,0 +1,7 @@
+div.scrollbar-width-override {
+  scrollbar-width: none !important;
+}
+
+div.scrollbar-width-override::-webkit-scrollbar {
+  display: none !important;
+}
