@@ -1,5 +1,5 @@
 import { MovieCardList } from "@components/MovieCardList";
-import { fetchMovies } from "@utils/fetchUtils";
+import { fetchMovies } from "@utils/serverFetchUtils";
 import { Movie } from "@utils/types";
 import type { NextPage } from "next";
 import ScrollContainer from "react-indiana-drag-scroll";
@@ -11,7 +11,7 @@ const Home: NextPage<HomePageProps> = ({ movies }) => {
   return (
     <div>
       <ScrollContainer
-        className="scrollbar-width-override h-[50vh] cursor-ns-resize"
+        className="scrollbar-width-override h-[75vh] cursor-ns-resize"
         hideScrollbars={false}
       >
         <MovieCardList movies={movies} />
