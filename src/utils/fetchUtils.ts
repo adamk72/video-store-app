@@ -1,4 +1,4 @@
-import db from "@utils/db";
+import db from "./db";
 
 export const fetchMovies = async () => {
   const moviesCol = await db.collection("movies").get();
