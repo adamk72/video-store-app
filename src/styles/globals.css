@@ -4,3 +4,12 @@
 
 @import "reset.css";
 @import "scrollbars.css";
+@import "navbar.css";
+
+body #body-wrapper > #inner-body {
+  background-position: top center;
+}
+
+#site-title {
+  font-size: clamp(38px, 3vw, 96px);
+}

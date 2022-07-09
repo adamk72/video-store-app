@@ -1,3 +1,4 @@
+import { Layout } from "@components/Layout";
 import { MovieCardList } from "@components/MovieCardList";
 import { fetchMovies } from "@utils/serverFetchUtils";
 import { Movie } from "@utils/types";
@@ -9,14 +10,14 @@ type HomePageProps = {
 };
 const Home: NextPage<HomePageProps> = ({ movies }) => {
   return (
-    <div>
+    <Layout>
       <ScrollContainer
-        className="scrollbar-width-override h-[75vh] cursor-ns-resize"
+        className="scrollbar-width-override cursor-ns-resize"
         hideScrollbars={false}
       >
         <MovieCardList movies={movies} />
       </ScrollContainer>
-    </div>
+    </Layout>
   );
 };
 
