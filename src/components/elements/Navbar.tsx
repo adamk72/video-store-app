@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { txt } from "@utils/text";
 import Image from "next/image";
-import AddMovieModal from "./AddMovieModal";
+import AddMovieModal from "../specs/AddMovieModal";
 
 export const Navbar = () => {
   return (

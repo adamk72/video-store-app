@@ -10,5 +10,8 @@
       "source.organizeImports": true
     }
   },
-  "cSpell.words": ["scrollbars"]
+  "cSpell.words": ["scrollbars"],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/adam/Code/Personal/video-store-app/.github/workflows/deploy.yaml"
+  }
 }

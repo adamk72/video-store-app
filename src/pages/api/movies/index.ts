@@ -11,7 +11,7 @@ export default async function handler(
       id: entry.id,
       ...entry.data(),
     }));
-    res.status(200).json({ moviesData });
+    res.status(200).json({ movies: moviesData });
   } catch (e) {
     res.status(400).end();
   }

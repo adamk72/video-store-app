@@ -1,17 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
+import FireSymbol from "public/images/fire.svg";
+import HeartSymbol from "public/images/heart.svg";
+import LikeSymbol from "public/images/like.svg";
 
 import { useEffect, useState } from "react";
 
 const iconVariants = [
-  { name: "like", threshold: -1, size: "24px" },
-  { name: "heart", threshold: 13, size: "36px" },
-  { name: "fire", threshold: 21, size: "48px" },
+  { threshold: -1, icon: <LikeSymbol className="h-6 w-6 text-sky-700" /> },
+  { threshold: 13, icon: <HeartSymbol className="h-8 w-8 text-pink-400" /> },
+  { threshold: 21, icon: <FireSymbol className="h-12 w-12 text-orange-600" /> },
 ];
 
 /**
  * @returns an icon based on the number of likes applied to the movie.
  */
-const LikeIcon = ({ count }: { count: number }) => {
+const Licon = ({ count }: { count: number }) => {
   const [effect, setEffect] = useState(false);
   const variant = iconVariants.reduce((prev, curr) =>
     curr.threshold <= count ? { ...curr } : { ...prev }
@@ -22,14 +25,16 @@ const LikeIcon = ({ count }: { count: number }) => {
   }, [variant, count]);
 
   return (
-    <img
-      src={`/images/${variant.name}.svg`}
-      alt={`${variant.name} icon`}
-      height={variant.size}
-      width={variant.size}
-      className={`${effect && "animate-wiggle"}`}
-      onAnimationEnd={() => setEffect(false)}
-    />
+    <>
+      {variant && (
+        <div
+          className={`${effect && "animate-wiggle"}`}
+          onAnimationEnd={() => setEffect(false)}
+        >
+          {variant.icon}
+        </div>
+      )}
+    </>
   );
 };
 
@@ -48,7 +53,7 @@ export const Likes = ({ count, id }: { count: number; id: string }) => {
   return (
     <div className="flex flex-col items-center justify-center">
       <button onClick={() => onClick(id)}>
-        <LikeIcon count={likes} />
+        <Licon count={likes} />
       </button>
       <span>{likes}</span>
     </div>

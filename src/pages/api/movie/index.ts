@@ -8,7 +8,7 @@ export default async function handler(
   res: NextApiResponse<{ id: string }>
 ) {
   try {
-    const movie = req.body as Movie;
+    const movie = JSON.parse(req.body) as Movie;
     const doc = {
       ...movie,
       slug: slugify(movie.title, { lower: true }),

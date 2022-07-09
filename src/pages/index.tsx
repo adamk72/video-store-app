@@ -1,5 +1,5 @@
-import { Layout } from "@components/Layout";
-import { MovieCardList } from "@components/MovieCardList";
+import { Layout } from "@components/elements/Layout";
+import { MovieCardList } from "@components/specs/MovieCardList";
 import { fetchMovies } from "@utils/serverFetchUtils";
 import { Movie } from "@utils/types";
 import type { NextPage } from "next";
@@ -12,7 +12,7 @@ const Home: NextPage<HomePageProps> = ({ movies }) => {
   return (
     <Layout>
       <ScrollContainer
-        className="scrollbar-width-override cursor-ns-resize"
+        className="scrollbar-width-override w-3/4 cursor-ew-resize justify-center"
         hideScrollbars={false}
       >
         <MovieCardList movies={movies} />

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@components/Button";
+import { Button } from "@components/elements/Button";
 import { Dialog, Transition } from "@headlessui/react";
 import { txt } from "@utils/text";
 import XOut from "public/images/x-out.svg";
@@ -56,7 +56,7 @@ export default function AddMovieModal() {
                     {txt.modals.addNewMovie.title}
                   </Dialog.Title>
                   <div className="mt-2">
-                    <AddMovieModalForm />
+                    <AddMovieModalForm close={() => setIsOpen(false)} />
                   </div>
 
                   <div className="absolute top-3 right-3">
