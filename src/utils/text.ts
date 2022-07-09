@@ -10,12 +10,14 @@ export const txt = {
     title: "Welcome to Movie Central!",
   },
   buttons: {
-    addNewMovie: "Add New movie to List",
+    addNewMovie: "Add New Movie",
   },
   modals: {
     addNewMovie: {
       title: "Add New Movie",
-      instructions: "Fill out the form below",
+      label: "Movie Title",
+      placeholder: "Name of movie",
+      submit: "Add",
     },
   },
 };

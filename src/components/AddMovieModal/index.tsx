@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { Button } from "@components/Button";
 import { Dialog, Transition } from "@headlessui/react";
 import { txt } from "@utils/text";
 import XOut from "public/images/x-out.svg";
@@ -19,13 +20,7 @@ export default function AddMovieModal() {
   return (
     <>
       <div>
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-lg bg-button-surface py-4 px-6 text-button"
-        >
-          {txt.buttons.addNewMovie}
-        </button>
+        <Button label={txt.buttons.addNewMovie} onClick={openModal} />
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
