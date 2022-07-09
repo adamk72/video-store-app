@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { txt } from "@utils/text";
 import XOut from "public/images/x-out.svg";
 import { Fragment, useState } from "react";
+import { AddMovieModalForm } from "./AddMovieModalForm";
 
 export default function AddMovieModal() {
   let [isOpen, setIsOpen] = useState(false);
@@ -60,9 +61,7 @@ export default function AddMovieModal() {
                     {txt.modals.addNewMovie.title}
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-modal">
-                      {txt.modals.addNewMovie.instructions}
-                    </p>
+                    <AddMovieModalForm />
                   </div>
 
                   <div className="absolute top-3 right-3">
