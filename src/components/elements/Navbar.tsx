@@ -13,6 +13,7 @@ export const Navbar = () => {
           layout="fixed"
           height="150px"
           width="259px"
+          priority
         />
       </div>
       <h1 id="site-title" className="flex-shrink-0 justify-center font-bold">
