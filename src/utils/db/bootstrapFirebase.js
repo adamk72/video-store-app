@@ -3,10 +3,11 @@ const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 
 const bootstrapData = [
-  { title: "The Good, the Bad and the Ugly", likes: 1 },
+  { title: "The Good, the Bad and the Ugly", likes: 3 },
   { title: "Seven Samurai " },
-  { title: "Kill la Kill", likes: 12 },
+  { title: "Kill la Kill", likes: 13 },
   { title: "The Empire Strikes Back" },
+  { title: "Romeo Must Die", likes: 21 },
 ];
 
 /**

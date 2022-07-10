@@ -24,7 +24,7 @@ type Movie = {
 };
 ```
 
-Connecting to Firestore requires credential that are generated from the Firebase project (Project Overview -> Service Accounts). For deployment purposes, the resulting JSON file is base64 encoded and assigned to a environmental variable `SERVICE_ACCOUNT_KEY`. For `localhost` this would be put in `.env.local` so NextJS can pick it up.
+Connecting to Firestore requires credential that are generated from the Firebase project (Project Overview -> Service Accounts). The key must be stored in a environmental variable called `FIREBASE_SERVICE_ACCOUNT_KEY` (in `.env.local` when testing on localhost).
 
 The database can be initialized using the [bootstrapFirebase.js](src/utils/db/bootstrapFirebase.js) script from the command line (`node src/utils/db/bootstrapFirebase.js`).
 
@@ -33,6 +33,7 @@ The database can be initialized using the [bootstrapFirebase.js](src/utils/db/bo
 To make this a bit more complete (as far as a sample app might go) the following effort could be applied:
 
 - Add pagintation to the movie list. Put left/right chevrons to click direction instead of drag-and-scroll.
+- Highlight the new movie entry, maybe by scrolling to it or by adding to the front of the list.
 - Style it a lot better.
 - Validation of the movie name before posting.
 - Abstract out the Firestore APIs so that another backend could be used.
