@@ -10,7 +10,7 @@ export const AddMovieModalForm = ({ close }: { close: VoidFunction }) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/movie", {
+      const res = await fetch("/api/movies", {
         method: "POST",
         body: JSON.stringify({ title }),
       });
