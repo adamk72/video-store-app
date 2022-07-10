@@ -19,6 +19,7 @@
       "@apis/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
+      "@providers/*": ["src/providers/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"]
     }

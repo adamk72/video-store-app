@@ -4,3 +4,7 @@ export type Movie = {
   title: string;
   likes?: string;
 };
+
+export type FirestoreState = {
+  lastAddedId: string;
+};
