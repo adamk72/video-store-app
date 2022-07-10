@@ -1,12 +1,17 @@
 import { FirestoreContext } from "@providers/FirestoreContext";
 import type { AppProps } from "next/app";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [fsState, setFsState] = useState({ lastAddedId: " " });
+  const [firestoreState, setFirestoreState] = useState({ lastAddedMovie: {} });
+  const firestoreContextValue = useMemo(
+    () => ({ firestoreState, setFirestoreState }),
+    [firestoreState]
+  );
+
   return (
-    <FirestoreContext.Provider value={{ state: fsState, setState: setFsState }}>
+    <FirestoreContext.Provider value={firestoreContextValue}>
       <Component {...pageProps} />
     </FirestoreContext.Provider>
   );

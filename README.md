@@ -37,3 +37,4 @@ To make this a bit more complete (as far as a sample app might go) the following
 - Validation of the movie name before posting.
 - Abstract out the Firestore APIs so that another backend could be used.
 - Add scripts to [package.json](package.json) for deployment and bootstrapping.
+- Handle network errors (better).

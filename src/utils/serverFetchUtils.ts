@@ -9,4 +9,5 @@ const serverCollectionFetch = async (collection: string) => {
   return entries;
 };
 
-export const fetchMovies = async () => serverCollectionFetch("movies");
+export const serverSideFetchMovies = async () =>
+  serverCollectionFetch("movies");

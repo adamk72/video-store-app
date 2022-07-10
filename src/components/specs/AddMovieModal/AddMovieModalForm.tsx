@@ -1,26 +1,20 @@
 import { Button } from "@components/elements/Button";
 import { FirestoreContext } from "@providers/FirestoreContext";
+import { addMovie } from "@utils/clientFetchUtils";
 import { txt } from "@utils/text";
 import { FormEvent, useContext, useState } from "react";
 
 export const AddMovieModalForm = ({ close }: { close: VoidFunction }) => {
   const [title, setTitle] = useState("");
-  const { setState: setFirestoreState } = useContext(FirestoreContext);
+  const { setFirestoreState: setFirestoreState } = useContext(FirestoreContext);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      const res = await fetch("/api/movies", {
-        method: "POST",
-        body: JSON.stringify({ title }),
-      });
-      const id = await res.json();
-      setFirestoreState({ lastAddedId: id });
-    } catch (error) {
-      console.error(error);
-    }
+    const id = await addMovie(title);
+    setFirestoreState({ lastAddedMovie: { id, title } });
     close();
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>

@@ -1,7 +1,6 @@
-import { FirestoreState } from "@utils/types";
-import { createContext, SetStateAction } from "react";
+import { createContext } from "react";
 
-export const FirestoreContext = createContext<{
-  state: FirestoreState;
-  setState: React.Dispatch<SetStateAction<FirestoreState>>;
-}>({ state: { lastAddedId: " " }, setState: () => null });
+export const FirestoreContext = createContext({
+  firestoreState: { lastAddedMovie: {} },
+  setFirestoreState: ({ lastAddedMovie: {} }) => {},
+});

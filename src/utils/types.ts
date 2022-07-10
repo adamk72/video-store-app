@@ -6,5 +6,5 @@ export type Movie = {
 };
 
 export type FirestoreState = {
-  lastAddedId: string;
+  lastAddedMovie: Partial<Movie>; // keeping this simple for now. Would otherwise be more specific with the typing.
 };
