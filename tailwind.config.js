@@ -17,6 +17,9 @@ module.exports = {
         > -dk = darker variation
       */
 
+        "card-list": {
+          edge: "#0369a166", //sky-700
+        },
         button: {
           DEFAULT: "#f1f5f9", //slate-100
           surface: "#64748b", //slate-500

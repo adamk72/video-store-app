@@ -22,7 +22,7 @@ const Home: NextPage<HomePageProps> = ({ movies }) => {
   return (
     <Layout>
       <ScrollContainer
-        className="scrollbar-width-override w-3/4 cursor-ew-resize justify-center"
+        className="scrollbar-width-override h-[75vh] cursor-ns-resize justify-center rounded-md border-4 border-card-list-edge p-6 lg:h-full lg:w-3/4 lg:cursor-ew-resize"
         hideScrollbars={false}
       >
         <MovieCardList movies={movies} />
