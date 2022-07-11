@@ -4,8 +4,7 @@
   "info": {
     "singularName": "movie",
     "pluralName": "movies",
-    "displayName": "Movie",
-    "description": ""
+    "displayName": "Movie"
   },
   "options": {
     "draftAndPublish": true
@@ -19,7 +18,8 @@
       "type": "integer"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
