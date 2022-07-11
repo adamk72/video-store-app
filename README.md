@@ -2,12 +2,26 @@
 
 A single page React/TypeScript application which displays a list of movie titles.
 
+## Regarding the Backend
+
+I originally started with Firestore, but ended up hitting a quota limit while experimenting with some feature ideas so moved over to Strapi v4 so I could 1) continue working and 2) bundle up the build into one repo (and not rely on an external service). As such the setup is a little more complicated &mdash; but thankfully just a one-time affair.
+
 ## Quick Start
 
 You'll need to open two terminals; one will be at the project root for the frontend application and the other will be in the `backend` folder.
 
-1. From frontend terminal: `yarn && yarn dev`; the client UI will be served at [localhost:3000](http://localhost:3000)
-2. From backend terminal: `yarn && yarn develop`; the CMS UI will be served at [localhost:1337/admin](http://localhost:1337/admin)
+1. From backend terminal:
+   - Copy the details from `.env.example` to `.env`. (it's the default test info Strapi provides on installation).
+   - `yarn && yarn develop`; the CMS UI will be served at [localhost:1337/admin](http://localhost:1337/admin)
+2. Login (create an account) to Strapi.
+3. Create an initial Movie item:
+   - Under the `Content Manager -> Movie` collection type, add at least one entry. This is necessary since I didn't add a bootstrap utility for Strapi.
+   - The title is the only necessary field; make sure to Save and the Publish it.
+4. Set permissions on the database:
+   - Under `Settings -> Users & Permissions Plugin -> Roles` click on `Public`.
+   - Under `Permissions` click on `Movie` and check `create`, `find`, and `update`.
+   - Save those changes and the DB is ready to be used by the frontend.
+5. From frontend terminal: `yarn && yarn dev`; the client UI will be served at [localhost:3000](http://localhost:3000)
 
 ## Frontend
 
