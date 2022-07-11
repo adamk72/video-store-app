@@ -55,3 +55,20 @@ export const serverSideFetchMovies = async () => {
   const movies: CmsMovie[] = data.data;
   return movies;
 };
+
+export const updateLikes = async (id: number, likes: number) => {
+  const path = `${getStrapiURL(`/api/movies/${id}`)}`;
+  await fetch(path, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data: { likes } }),
+  });
+};
+
+export const getMovie = async (id: number) => {
+  const data = await fetchAPI(`/movies/${id}`);
+  const movies: CmsMovie = data.data;
+  return movies;
+};

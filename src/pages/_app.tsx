@@ -8,7 +8,6 @@ import { useMemo, useState } from "react";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log("**** START ****");
   const [firestoreState, setFirestoreState] = useState<{
     lastAddedMovie: Movie;
   }>({ lastAddedMovie: initFirestoreMovie });

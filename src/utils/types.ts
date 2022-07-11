@@ -6,7 +6,7 @@ export type Movie = {
   id: string;
   slug?: string;
   title: string;
-  likes?: string;
+  likes?: number;
 };
 
 export type FirestoreState = {

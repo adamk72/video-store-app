@@ -1,16 +1,17 @@
-import db from "@utils/firestore";
+import { getMovie, updateLikes } from "@utils/strapi/serverFetchUtils";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<FirebaseFirestore.DocumentData>
+  res: NextApiResponse
 ) {
   try {
     const { id } = await JSON.parse(req.body);
-    const movieDoc = await db.collection("movies").doc(id).get();
-    const movie = movieDoc.data();
-    const count = (movie?.likes || 0) + 1;
-    await db.collection("movies").doc(id).update({ likes: count });
+
+    const movie = await getMovie(id);
+    const count = (movie?.attributes.likes || 0) + 1;
+
+    await updateLikes(id, count);
 
     res.status(200).json({ likes: count });
   } catch {
