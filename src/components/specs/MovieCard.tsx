@@ -10,7 +10,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
     >
       <div className="flex h-full flex-col items-center justify-center gap-2">
         <span className="text-center">{movie.title}</span>
-        <Likes count={parseInt(movie.likes || "0")} id={movie.id} />
+        <Likes count={movie.likes || 0} id={movie.id} />
       </div>
     </article>
   );
