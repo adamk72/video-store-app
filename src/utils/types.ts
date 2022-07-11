@@ -1,3 +1,7 @@
+export type CmsMovie = {
+  id: number;
+  attributes: Movie;
+};
 export type Movie = {
   id: string;
   slug?: string;

@@ -4,22 +4,22 @@
   "info": {
     "singularName": "movie",
     "pluralName": "movies",
-    "displayName": "Movie"
+    "displayName": "Movie",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Likes": {
+    "likes": {
       "type": "integer"
     },
-    "Slug": {
-      "type": "uid",
-      "targetField": "Title"
+    "slug": {
+      "type": "uid"
     }
   }
 }

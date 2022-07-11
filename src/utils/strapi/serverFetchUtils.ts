@@ -1,4 +1,4 @@
-import { Movie } from "@utils/types";
+import { CmsMovie } from "@utils/types";
 import qs from "qs";
 
 /**
@@ -51,6 +51,7 @@ export async function fetchAPI(
 }
 
 export const serverSideFetchMovies = async () => {
-  const movies: Movie[] = await fetchAPI("/movies");
+  const data = await fetchAPI("/movies");
+  const movies: CmsMovie[] = data.data;
   return movies;
 };

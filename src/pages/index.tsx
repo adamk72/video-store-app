@@ -47,14 +47,18 @@ const Home: NextPage<HomePageProps> = ({ movies }) => {
 };
 
 export async function getServerSideProps() {
-  const movies = await serverSideFetchMovies();
-  if (!movies) {
+  const cmsMovies = await serverSideFetchMovies();
+  if (!cmsMovies) {
     return {
       notFound: true,
     };
   }
+  const movies = cmsMovies.map((movie) => ({
+    ...movie.attributes,
+    id: movie.id,
+  }));
   return {
-    props: { movies },
+    props: { movies: movies },
   };
 }
 
