@@ -2,7 +2,7 @@ import { Layout } from "@components/elements/Layout";
 import { MovieCardList } from "@components/specs/MovieCardList";
 import { FirestoreContext } from "@providers/FirestoreContext";
 import { CARD_ID_PREFIX } from "@utils/constants";
-import { serverSideFetchMovies } from "@utils/serverFetchUtils";
+import { serverSideFetchMovies } from "@utils/strapi/serverFetchUtils";
 import { Movie } from "@utils/types";
 import type { NextPage } from "next";
 import Router from "next/router";

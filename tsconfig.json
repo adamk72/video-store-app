@@ -28,7 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/utils/db/bootstrapFirebase.js"
+    "src/utils/firestore/bootstrapFirebase.js"
   ],
   "exclude": ["node_modules"]
 }

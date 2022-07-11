@@ -1,4 +1,4 @@
-import db from "./db";
+import db from ".";
 
 const serverCollectionFetch = async (collection: string) => {
   const entriesCol = await db.collection(collection).orderBy("title").get();

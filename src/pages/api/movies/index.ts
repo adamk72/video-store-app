@@ -1,4 +1,4 @@
-import db from "@utils/db";
+import db from "@utils/firestore";
 import { Movie } from "@utils/types";
 import type { NextApiRequest, NextApiResponse } from "next";
 import slugify from "slugify";

@@ -14,11 +14,12 @@
     "Title": {
       "type": "string"
     },
-    "Slug": {
-      "type": "uid"
-    },
     "Likes": {
       "type": "integer"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
     }
   }
 }
