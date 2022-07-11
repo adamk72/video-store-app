@@ -1,4 +1,4 @@
-import { DbContext, initDbMovie } from "@providers/DbContext";
+import { DbContext, initDbState } from "@providers/DbContext";
 import { Movie } from "@utils/types";
 import type { AppProps } from "next/app";
 import { useMemo, useState } from "react";
@@ -7,12 +7,13 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }: AppProps) {
   const [dbState, setDbState] = useState<{
     lastAddedMovie: Movie;
-  }>({ lastAddedMovie: initDbMovie });
+    error?: string;
+  }>(initDbState);
 
   const dbContextValue = useMemo(() => ({ dbState, setDbState }), [dbState]);
 
   return (
-    <DbContext.Provider value={{ dbState, setDbState }}>
+    <DbContext.Provider value={dbContextValue}>
       <Component {...pageProps} />
     </DbContext.Provider>
   );

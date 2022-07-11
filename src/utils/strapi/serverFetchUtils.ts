@@ -1,4 +1,4 @@
-import { CmsMovie } from "@utils/types";
+import { CmsMovie, Movie, StrapiRestError } from "@utils/types";
 import qs from "qs";
 
 /**
@@ -65,6 +65,24 @@ export const updateLikes = async (id: number, likes: number) => {
     },
     body: JSON.stringify({ data: { likes } }),
   });
+};
+
+export const addMovie = async (movie: { title: string; slug: string }) => {
+  const path = `${getStrapiURL(`/api/movies`)}`;
+  const res = await fetch(path, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data: { ...movie } }),
+  });
+  if (res.status === 200) {
+    const data: { data: { id: number; attributes: Movie } } = await res.json();
+    return data.data.id;
+  } else {
+    const error: StrapiRestError = await res.json();
+    throw error.error.name;
+  }
 };
 
 export const getMovie = async (id: number) => {

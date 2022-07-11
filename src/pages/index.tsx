@@ -5,22 +5,29 @@ import { CARD_ID_PREFIX } from "@utils/constants";
 import { serverSideFetchMovies } from "@utils/strapi/serverFetchUtils";
 import { Movie } from "@utils/types";
 import type { NextPage } from "next";
-import Router from "next/router";
 import { useContext, useEffect, useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 type HomePageProps = {
   movies: Movie[];
 };
+
 const Home: NextPage<HomePageProps> = ({ movies }) => {
   const [scrollEl, setScrollEl] = useState<Element>();
+  const [errorMessage, _setErrorMessage] = useState("");
   const { dbState } = useContext(DbContext);
   useEffect(() => {
-    const lastAdded = dbState.lastAddedMovie;
-    if (lastAdded) {
-      Router.push("/", "", { scroll: false });
-      const el = document.querySelector(`#${CARD_ID_PREFIX}${lastAdded.id}`);
+    const { lastAddedMovie, error } = dbState;
+    if (lastAddedMovie) {
+      const el = document.querySelector(
+        `#${CARD_ID_PREFIX}${lastAddedMovie.id}`
+      );
       if (el) setScrollEl(el);
+    }
+    if (error) {
+      console.log(error);
+      // @todo: a better ui.
+      // setErrorMessage(txt.errors.duplicateName);
     }
   }, [dbState]);
 
@@ -36,12 +43,16 @@ const Home: NextPage<HomePageProps> = ({ movies }) => {
 
   return (
     <Layout>
-      <ScrollContainer
-        className="scrollbar-width-override h-[75vh] cursor-ns-resize justify-center rounded-md border-4 border-card-list-edge p-6 lg:h-full lg:w-3/4 lg:cursor-ew-resize"
-        hideScrollbars={false}
-      >
-        <MovieCardList movies={movies} />
-      </ScrollContainer>
+      <div className="flex h-[75vh] flex-col items-center lg:h-full lg:w-[75vw]">
+        <ScrollContainer
+          className="scrollbar-width-override w-full cursor-ns-resize justify-center rounded-md border-4 border-card-list-edge p-6 lg:cursor-ew-resize"
+          hideScrollbars={false}
+        >
+          <MovieCardList movies={movies} />
+        </ScrollContainer>
+        {/* @TODO: Full implmentation of workable error UI */}
+        {errorMessage && <span>{errorMessage}</span>}
+      </div>
     </Layout>
   );
 };

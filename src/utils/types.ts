@@ -12,3 +12,13 @@ export type Movie = {
 export type DbState = {
   lastAddedMovie: Movie; // keeping this simple for now. Would otherwise be more specific with the typing.
 };
+
+export type StrapiRestError = {
+  data?: null;
+  error: {
+    status: string;
+    name: string;
+    message: string;
+    details: {};
+  };
+};
