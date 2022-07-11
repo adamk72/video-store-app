@@ -1,13 +1,11 @@
 import { Button } from "@components/elements/Button";
-import { DbContext } from "@providers/DbContext";
 import { txt } from "@utils/text";
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useState } from "react";
 
 import { useRouter } from "next/router";
 export const AddMovieModalForm = ({ close }: { close: VoidFunction }) => {
   const router = useRouter();
   const [title, setTitle] = useState("");
-  const { setDbState: setDbState } = useContext(DbContext);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,16 +13,6 @@ export const AddMovieModalForm = ({ close }: { close: VoidFunction }) => {
       method: "POST",
       body: JSON.stringify({ title }),
     });
-    const { error, id } = await res.json();
-    if (error) {
-      setDbState({
-        error,
-      });
-    }
-    if (id)
-      setDbState({
-        lastAddedMovie: { id, title },
-      });
     router.replace(router.asPath);
     close();
   };

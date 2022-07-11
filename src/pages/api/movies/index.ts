@@ -13,7 +13,7 @@ export default async function handler(
         title,
         slug: slugify(title, { lower: true }),
       });
-      res.status(200).json(id);
+      res.status(200).json({ id });
     }
   } catch (error) {
     res.status(500).json({ error });

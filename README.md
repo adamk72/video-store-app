@@ -25,6 +25,7 @@ This backend uses Strapi with the default sqlLite3 serving as the DB; this makes
 
 To make this a bit more complete (as far as a sample app might go) the following effort could be applied:
 
+- Scroll the newly added movie object.
 - Add bootstrap util for Strapi (one exists for the Firestore version).
 - Add pagintation to the movie list. Put left/right chevrons to click direction instead of drag-and-scroll.
 - Highlight the new movie entry, maybe by scrolling to it or by adding to the front of the list.
