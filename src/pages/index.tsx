@@ -1,23 +1,38 @@
 import { Layout } from "@components/elements/Layout";
 import { MovieCardList } from "@components/specs/MovieCardList";
 import { FirestoreContext } from "@providers/FirestoreContext";
+import { CARD_ID_PREFIX } from "@utils/constants";
 import { serverSideFetchMovies } from "@utils/serverFetchUtils";
 import { Movie } from "@utils/types";
 import type { NextPage } from "next";
 import Router from "next/router";
-
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 type HomePageProps = {
   movies: Movie[];
 };
 const Home: NextPage<HomePageProps> = ({ movies }) => {
-  const { firestoreState: firestoreState } = useContext(FirestoreContext);
+  const [scrollEl, setScrollEl] = useState<Element>();
+  const { firestoreState } = useContext(FirestoreContext);
   useEffect(() => {
     const lastAdded = firestoreState.lastAddedMovie;
-    if (lastAdded) Router.push("/");
+    if (lastAdded) {
+      Router.push("/", "", { scroll: false });
+      const el = document.querySelector(`#${CARD_ID_PREFIX}${lastAdded.id}`);
+      if (el) setScrollEl(el);
+    }
   }, [firestoreState]);
+
+  useEffect(() => {
+    if (scrollEl) {
+      scrollEl.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
+  }, [scrollEl]);
 
   return (
     <Layout>

@@ -4,7 +4,7 @@ export const addMovie = async (title: string) => {
       method: "POST",
       body: JSON.stringify({ title }),
     });
-    const id: string = await res.json();
+    const { id } = await res.json();
     return id;
   } catch (error) {
     console.error(error);
