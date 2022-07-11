@@ -9,6 +9,6 @@ export type Movie = {
   likes?: number;
 };
 
-export type FirestoreState = {
+export type DbState = {
   lastAddedMovie: Movie; // keeping this simple for now. Would otherwise be more specific with the typing.
 };

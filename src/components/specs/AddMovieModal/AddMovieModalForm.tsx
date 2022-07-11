@@ -1,18 +1,18 @@
 import { Button } from "@components/elements/Button";
-import { FirestoreContext } from "@providers/FirestoreContext";
+import { DbContext } from "@providers/DbContext";
 import { addMovie } from "@utils/clientFetchUtils";
 import { txt } from "@utils/text";
 import { FormEvent, useContext, useState } from "react";
 
 export const AddMovieModalForm = ({ close }: { close: VoidFunction }) => {
   const [title, setTitle] = useState("");
-  const { setFirestoreState: setFirestoreState } = useContext(FirestoreContext);
+  const { setDbState: setDbState } = useContext(DbContext);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const id = await addMovie(title);
     if (id)
-      setFirestoreState({
+      setDbState({
         lastAddedMovie: { id, title },
       });
     close();

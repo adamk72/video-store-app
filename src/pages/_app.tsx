@@ -1,26 +1,20 @@
-import {
-  FirestoreContext,
-  initFirestoreMovie,
-} from "@providers/FirestoreContext";
+import { DbContext, initDbMovie } from "@providers/DbContext";
 import { Movie } from "@utils/types";
 import type { AppProps } from "next/app";
 import { useMemo, useState } from "react";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [firestoreState, setFirestoreState] = useState<{
+  const [dbState, setDbState] = useState<{
     lastAddedMovie: Movie;
-  }>({ lastAddedMovie: initFirestoreMovie });
+  }>({ lastAddedMovie: initDbMovie });
 
-  const firestoreContextValue = useMemo(
-    () => ({ firestoreState, setFirestoreState }),
-    [firestoreState]
-  );
+  const dbContextValue = useMemo(() => ({ dbState, setDbState }), [dbState]);
 
   return (
-    <FirestoreContext.Provider value={{ firestoreState, setFirestoreState }}>
+    <DbContext.Provider value={{ dbState, setDbState }}>
       <Component {...pageProps} />
-    </FirestoreContext.Provider>
+    </DbContext.Provider>
   );
 }
 

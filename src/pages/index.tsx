@@ -1,6 +1,6 @@
 import { Layout } from "@components/elements/Layout";
 import { MovieCardList } from "@components/specs/MovieCardList";
-import { FirestoreContext } from "@providers/FirestoreContext";
+import { DbContext } from "@providers/DbContext";
 import { CARD_ID_PREFIX } from "@utils/constants";
 import { serverSideFetchMovies } from "@utils/strapi/serverFetchUtils";
 import { Movie } from "@utils/types";
@@ -14,15 +14,15 @@ type HomePageProps = {
 };
 const Home: NextPage<HomePageProps> = ({ movies }) => {
   const [scrollEl, setScrollEl] = useState<Element>();
-  const { firestoreState } = useContext(FirestoreContext);
+  const { dbState } = useContext(DbContext);
   useEffect(() => {
-    const lastAdded = firestoreState.lastAddedMovie;
+    const lastAdded = dbState.lastAddedMovie;
     if (lastAdded) {
       Router.push("/", "", { scroll: false });
       const el = document.querySelector(`#${CARD_ID_PREFIX}${lastAdded.id}`);
       if (el) setScrollEl(el);
     }
-  }, [firestoreState]);
+  }, [dbState]);
 
   useEffect(() => {
     if (scrollEl) {
