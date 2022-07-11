@@ -11,7 +11,10 @@ export const AddMovieModalForm = ({ close }: { close: VoidFunction }) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const id = await addMovie(title);
-    setFirestoreState({ lastAddedMovie: { id, title } });
+    if (id)
+      setFirestoreState({
+        lastAddedMovie: { id, title },
+      });
     close();
   };
 
